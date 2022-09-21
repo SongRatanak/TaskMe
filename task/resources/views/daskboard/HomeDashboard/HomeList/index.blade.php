@@ -25,12 +25,12 @@
                             <span>{{$homelist -> task }}</span>
                         </div>
                     </div>
-                    <form action="{{route('Homelist.update',$homelist->id)}}" method="POST">
-                        @csrf
-                        @method('PUT')
-                        <input type="hidden" value="1" name="completed">
-                        <input type="hidden" value="{{$homelist-> task }}" name="task">
-                        <input type="hidden" value="{{$homelist-> type }}" name="type">
+                        <form method="POST" action="{{ route('complete.update',$homelist->id)}}" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+{{--                        <input type="hidden" value="1" name="completed">--}}
+{{--                        <input type="hidden" value="{{$homelist-> task }}" name="task">--}}
+{{--                        <input type="hidden" value="{{$homelist-> type }}" name="type">--}}
                     <button type="submit"  class="btn btn-square btn-outline-success m-2"><i class="fa fa-check"></i></button>
                     </form>
 

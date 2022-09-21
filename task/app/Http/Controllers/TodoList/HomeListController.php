@@ -39,15 +39,21 @@ class HomeListController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+           'task' => 'required'
+        ]);
         $input = $request->all();
         $input['user_id'] = Auth::id();
         TodoList::create($input);
         return redirect()->back();
     }
 
-    public function complete()
+    public function complete(TodoList $todoList)
     {
-
+        $input['completed'] = true;
+        $input['user_id'] = Auth::id();
+        $todoList->update($input);
+        return redirect()->back();
     }
 
     /**
@@ -79,13 +85,10 @@ class HomeListController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, TodoList $todoList)
+    public function update(TodoList $Homelist)
     {
 
-        $input = $request -> all();
-        $input['user_id'] = Auth::id();
-        $todoList->update($input);
-        return redirect()->back();
+
     }
 
     /**

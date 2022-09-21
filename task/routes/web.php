@@ -26,7 +26,7 @@ Route::get('/about', function (){
 Route::get('/home', [HomeController::class, 'Home'])->name('Home');
 
 Route::resource('Homelist',HomeListController::class);
-Route::PUT('completed/{todoList}',[HomeListController::class, 'complete'])->name('complete');
+Route::PUT('completed/{todoList}',[HomeListController::class, 'complete'])->name('complete.update');
 
 Route::resource('PersonalList',\App\Http\Controllers\TodoList\PersonalListController::class);
 Route::resource('ImportantList',\App\Http\Controllers\TodoList\ImportantListController::class);
