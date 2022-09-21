@@ -81,14 +81,8 @@ class HomeListController extends Controller
      */
     public function update(Request $request, TodoList $todoList)
     {
-        if(isset($request->complete)){
-            $complete = true;
-        }
-        else{
-            $complete = false;
-        }
 
-        $input = $request->all();
+        $input = $request -> all();
         $input['user_id'] = Auth::id();
         $todoList->update($input);
         return redirect()->back();

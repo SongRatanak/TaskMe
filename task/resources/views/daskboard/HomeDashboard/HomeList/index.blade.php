@@ -19,14 +19,26 @@
                 </div>
                 </form>
                 @foreach($homelist as $homelist)
-                <div class="d-flex align-items-center border-bottom py-2">
-                    <input class="form-check-input m-0" value="1" name="completed" type="checkbox" {{$homelist->complete ? 'checked=checked' : ''}}>
-                    <div class="w-100 ms-3">
-                        <div class="d-flex w-100 align-items-center justify-content-between">
+                <div class="d-flex align-items-center border-bottom py-1">
+                    <div class="w-100 ms-2">
+                        <div class="d-flex w-80 align-items-center justify-content-between">
                             <span>{{$homelist -> task }}</span>
-                            <button class="btn btn-sm"><i class="fa fa-times"></i></button>
                         </div>
                     </div>
+                    <form action="{{route('Homelist.update',$homelist->id)}}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <input type="hidden" value="1" name="completed">
+                        <input type="hidden" value="{{$homelist-> task }}" name="task">
+                        <input type="hidden" value="{{$homelist-> type }}" name="type">
+                    <button type="submit"  class="btn btn-square btn-outline-success m-2"><i class="fa fa-check"></i></button>
+                    </form>
+
+                    <button type="button" class="btn btn-square btn-outline-warning m-2"><i class="fa fa-edit"></i></button>
+                    <button type="button" class="btn btn-square btn-outline-danger m-2"><i class="fa fa-trash"></i></button>
+
+
+
                 </div>
                 @endforeach
             </div>
@@ -34,7 +46,6 @@
     </div>
 </div>
 <!-- Widgets End -->
-
 
 <!-- Widgets Start -->
 <div class="container-fluid pt-4 px-4">
