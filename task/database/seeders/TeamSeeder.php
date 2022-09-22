@@ -27,5 +27,10 @@ class TeamSeeder extends Seeder
             'name' => explode(' ', 'User', 2)[0]."'s Team",
             'personal_team' => true,
         ]);
+        DB::table('teams')->insert([
+            'user_id' => 3,
+            'name' => explode(' ', 'Admin2', 2)[0]."'s Team",
+            'personal_team' => true,
+        ]);
     }
 }

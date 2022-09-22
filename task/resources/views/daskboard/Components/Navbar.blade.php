@@ -9,46 +9,38 @@
     <form class="d-none d-md-flex ms-4">
         <input class="form-control border-0" type="search" placeholder="Search">
     </form>
+
+    @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
     <div class="navbar-nav align-items-center ms-auto">
         <div class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                 <i class="fa fa-envelope me-lg-2"></i>
-                <span class="d-none d-lg-inline-flex">Message</span>
+                <span class="d-none d-lg-inline-flex">{{ Auth::user()->currentTeam->name }}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                <a href="#" class="dropdown-item">
+                <a href="{{ route('teams.show', Auth::user()->currentTeam->id) }}" class="dropdown-item">
                     <div class="d-flex align-items-center">
-                        <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
                         <div class="ms-2">
-                            <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                            <small>15 minutes ago</small>
+                            <h6 class="fw-normal mb-0">Team Setting</h6>
                         </div>
+                        @endcan
                     </div>
                 </a>
-                <hr class="dropdown-divider">
-                <a href="#" class="dropdown-item">
+                @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
+                <a href="{{ route('teams.create') }}" class="dropdown-item">
                     <div class="d-flex align-items-center">
-                        <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                        <div class="ms-2">
-                            <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                            <small>15 minutes ago</small>
-                        </div>
+                            <div class="ms-2">
+                                <h6 class="fw-normal mb-0">Create Team</h6>
+                            </div>
                     </div>
                 </a>
-                <hr class="dropdown-divider">
-                <a href="#" class="dropdown-item">
-                    <div class="d-flex align-items-center">
-                        <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                        <div class="ms-2">
-                            <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                            <small>15 minutes ago</small>
-                        </div>
-                    </div>
-                </a>
-                <hr class="dropdown-divider">
-                <a href="#" class="dropdown-item text-center">See all message</a>
+                @endcan
             </div>
         </div>
+        @endif
+
+
         <div class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                 <i class="fa fa-bell me-lg-2"></i>

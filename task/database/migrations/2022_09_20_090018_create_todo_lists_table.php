@@ -18,7 +18,8 @@ return new class extends Migration
             $table->foreignId('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->longText('task');
             $table->string('type');
-            $table->boolean('completed') ->default(false);
+            $table->timestamp('completed_at')->nullable();
+            $table->boolean('completed')->default(false);
             $table->softDeletes();
             $table->timestamps();
         });

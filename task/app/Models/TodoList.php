@@ -13,6 +13,7 @@ class TodoList extends Model
         'user_id',
         'task',
         'type',
-        'completed'
+        'completed',
+        'completed_at',
     ];
 }

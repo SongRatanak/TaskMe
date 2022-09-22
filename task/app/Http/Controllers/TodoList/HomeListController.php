@@ -4,6 +4,7 @@ namespace App\Http\Controllers\TodoList;
 
 use App\Http\Controllers\Controller;
 use App\Models\TodoList;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,8 +17,8 @@ class HomeListController extends Controller
      */
     public function index()
     {
-        $homelist = TodoList::all()->where('type','Home') -> where('completed','0');
-        $listcompleted = TodoList::all()->where('type','Home')->where('completed','1');
+        $homelist = TodoList::all()->where('type','Home') -> where('completed_at',null);
+        $listcompleted = TodoList::all()->where('type','Home')->where('completed_at');
         return view('daskboard.HomeDashboard.HomeList.index',compact('homelist','listcompleted'));
     }
 
@@ -43,6 +44,7 @@ class HomeListController extends Controller
            'task' => 'required'
         ]);
         $input = $request->all();
+        $input['type'] = 'Home';
         $input['user_id'] = Auth::id();
         TodoList::create($input);
         return redirect()->back();
@@ -51,11 +53,19 @@ class HomeListController extends Controller
     public function complete(TodoList $todoList)
     {
         $input['completed'] = true;
+        $input['completed_at'] = Carbon::now();
         $input['user_id'] = Auth::id();
         $todoList->update($input);
         return redirect()->back();
     }
-
+    public function uncomplete(TodoList $todoList)
+    {
+        $input['completed'] = false;
+        $input['completed_at'] = null;
+        $input['user_id'] = Auth::id();
+        $todoList->update($input);
+        return redirect()->back();
+    }
     /**
      * Display the specified resource.
      *
