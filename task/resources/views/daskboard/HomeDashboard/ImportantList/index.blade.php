@@ -22,7 +22,7 @@
                     </form>
                     @foreach($importantList as $importantList)
                         <div class="d-flex align-items-center border-bottom py-3">
-                            <form method="POST" action="{{ route('imporcomplete.update',$importantList->id)}}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('importantcomplete.update',$importantList->id)}}" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <input type="checkbox" class="form-check-input m-0" onclick="if(this.checked){this.form.submit()}">

@@ -36,8 +36,8 @@ Route::PUT('un/completed/{todoList}',[HomeListController::class, 'uncomplete'])-
 //Route::PUT('important/uncompleted/{importantList}',[ImportantListController::class, 'importantuncomplete'])->name('importantuncomplete.update');
 
 Route::resource('ImportantList',\App\Http\Controllers\TodoList\ImportantListController::class);
-Route::PUT('importantcomplete/{todoList}',[ImportantListController::class, 'importantcomplete'])->name('importantcomplete.update');
-Route::PUT('importantuncompleted/{todoList}',[ImportantListController::class, 'importantuncompleted'])->name('importantuncompleted.update');
+Route::PUT('important/completed/{todoList}',[ImportantListController::class, 'importantcomplete'])->name('importantcomplete.update');
+Route::PUT('important/un/completed/{todoList}',[ImportantListController::class, 'imtunco'])->name('imtuncomplete.update');
 
 
 Route::resource('PersonalList',\App\Http\Controllers\TodoList\PersonalListController::class);
