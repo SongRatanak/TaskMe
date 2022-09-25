@@ -1,9 +1,6 @@
 @extends('daskboard.Masterboard')
 @section('Content')
 <!-- Widgets Start -->
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
 <div class="container-fluid pt-4 px-4">
     <div class="row g-4">
         <div class="col-sm-12 col-md-6 col-xl-12">
@@ -21,7 +18,7 @@
                 </div>
                 </form>
                 @foreach($homelist as $homelist)
-                <div class="d-flex align-items-center border-bottom py-3">
+                <div class="d-flex align-items-center border-bottom py-4">
                     <form method="POST" action="{{ route('complete.update',$homelist->id)}}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
@@ -29,21 +26,31 @@
                     </form>
                         <div class="w-100 ms-2">
                         <div class="d-flex w-80 align-items-center justify-content-between">
-                            <form method="POST" action="{{route('Homelist.update',$homelist->id)}}">
-                                @csrf
-                                @method('PUT')
-                                <div type="submit" class="myText"> {{$homelist -> task }} </div>
-                                <script>
-                                    $(document).on('click', '.myText', function() {
-                                        var that = $(this);
-                                        var text = that.text();
-                                        that.wrap('<div id="wrp" />');
-                                        $('#wrp').html('<input type="text" name="task" value="' + text + '" />');
-                                    });
-                                </script>
-                            </form>
+                            <span>{{$homelist -> task }}</span>
                         </div>
                     </div>
+
+
+{{--                    edit--}}
+
+                    <button onclick="document.getElementById('id02').style.display='block'" style=":auto;" class="btn btn-sm"><i class="fa fa-edit"></i></button>
+                    <div id="id01" class="modal">
+                        <form class="modal-content animate" action="{{route('Homelist.update', $homelist->id)}} " method="post">
+                            @csrf
+                            @method('PUT')
+                            <div class="container">
+                                <label for="uname"><b>Edit Task</b></label>
+                                <br>
+                                    <input name="task" class="textinput">{{$homelist->task}}</input>
+                                    <button type="submit" class="buttonme bg-primary" type="submit">Update</button>
+                                    <button href="" class="buttonme bg-light text-black-50" type="submit">Cancel</button>
+
+                            </div>
+                        </form>
+                    </div>
+
+{{--                    end--}}
+
 
                    <form action="{{route('Homelist.destroy',$homelist->id)}}" method="POST" >
                        @csrf
@@ -75,14 +82,9 @@
                         </form>
                         <div class="w-100 ms-3">
                             <div class="d-flex w-100 align-items-center justify-content-between ">
-                                <del>{{$listcompleted -> task }}</del>
+                                <span>{{$listcompleted -> task }}</span>
                             </div>
                         </div>
-                        <form action="{{route('Homelist.destroy',$listcompleted->id)}}" method="POST" >
-                            @csrf
-                            @method('Delete')
-                            <button type="submit" class="btn btn-sm"><i class="fa fa-times"></i></button>
-                        </form>
                     </div>
                 @endforeach
             </div>
@@ -92,13 +94,15 @@
 <!-- Widgets End -->
 
 <script>
-    var myModal = document.getElementById('myModal')
-    var myInput = document.getElementById('myInput')
+    // Get the modal
+    var modal = document.getElementById('id02');
 
-    myModal.addEventListener('shown.bs.modal', function () {
-        myInput.focus()
-    })
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 </script>
-
 
 @endsection

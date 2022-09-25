@@ -17,8 +17,8 @@ class HomeListController extends Controller
      */
     public function index()
     {
-        $homelist = TodoList::all()->where('type','Home') -> where('completed_at',null);
-        $listcompleted = TodoList::all()->where('type','Home')->where('completed_at');
+        $homelist = TodoList::orderBy('id','DESC')->where('type','Home') -> where('completed_at',null)->get();
+        $listcompleted = TodoList::orderBy('id','DESC')->where('type','Home')->where('completed','1')->get();
         return view('daskboard.HomeDashboard.HomeList.index',compact('homelist','listcompleted'));
     }
 
@@ -77,26 +77,13 @@ class HomeListController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function update (Request $request,TodoList $Homelist)
     {
-        //
-    }
+        $input = $request -> all();
+        $input['user_id'] = Auth::id();
+        $Homelist->update($input);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function update(TodoList $Homelist)
-    {
+        return redirect()->back();
 
 
     }
@@ -107,8 +94,9 @@ class HomeListController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(TodoList $Homelist)
     {
-        //
+        $Homelist -> delete();
+        return redirect()->back()->with('success');
     }
 }

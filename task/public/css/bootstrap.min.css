@@ -24,7 +24,8 @@
     --bs-info: #0dcaf0;
     --bs-warning: #ffc107;
     --bs-danger: #dc3545;
-    --bs-light: #f3f6f8;
+    --bs-light: #CDF0EA;
+    --bg-completed: #CDF0EA;
     --bs-dark: #0e2e50;
     --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto,
         "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,

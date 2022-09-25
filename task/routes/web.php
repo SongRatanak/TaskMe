@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Controllers\TodoList\HomeListController;
+use App\Http\Controllers\TodoList\ImportantListController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard;
 /*
@@ -29,8 +30,18 @@ Route::resource('Homelist',HomeListController::class);
 Route::PUT('completed/{todoList}',[HomeListController::class, 'complete'])->name('complete.update');
 Route::PUT('un/completed/{todoList}',[HomeListController::class, 'uncomplete'])->name('uncomplete.update');
 
-Route::resource('PersonalList',\App\Http\Controllers\TodoList\PersonalListController::class);
+////Route Important T
+//Route::resource('ImportantList',ImportantListController::class);
+//Route::PUT('important/completed/{importantList}',[ImportantListController::class, 'importantcomplete'])->name('importantcomplete.update');
+//Route::PUT('important/uncompleted/{importantList}',[ImportantListController::class, 'importantuncomplete'])->name('importantuncomplete.update');
+
 Route::resource('ImportantList',\App\Http\Controllers\TodoList\ImportantListController::class);
+Route::PUT('importantcomplete/{todoList}',[ImportantListController::class, 'importantcomplete'])->name('importantcomplete.update');
+Route::PUT('importantuncompleted/{todoList}',[ImportantListController::class, 'importantuncompleted'])->name('importantuncompleted.update');
+
+
+Route::resource('PersonalList',\App\Http\Controllers\TodoList\PersonalListController::class);
+
 
 //Route::resource('Home',HomeListController::class);
 
