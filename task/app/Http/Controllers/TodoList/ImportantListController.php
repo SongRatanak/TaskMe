@@ -51,7 +51,7 @@ class ImportantListController extends Controller
         return redirect()->back();
     }
 
-    public function complete(TodoList $importantList)
+    public function importantcomplete( TodoList $importantList)
     {
         $input['completed'] = true;
         $input['completed_at'] = Carbon::now();
@@ -59,7 +59,7 @@ class ImportantListController extends Controller
         $importantList->update($input);
         return redirect()->back();
     }
-    public function uncomplete(TodoList $importantList)
+    public function importantuncomplete( TodoList $importantList)
     {
         $input['completed'] = false;
         $input['completed_at'] = null;
