@@ -1,7 +1,6 @@
 @extends('daskboard.Masterboard')
 @section('Content')
     <!-- Widgets Start -->
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
     <div class="container-fluid pt-4 px-4">
@@ -44,7 +43,6 @@
                                     </form>
                                 </div>
                             </div>
-
                             <form action="{{route('ImportantList.destroy',$importantList->id)}}" method="POST" >
                                 @csrf
                                 @method('Delete')
@@ -78,7 +76,7 @@
                                     <del>{{$listcompleted -> task }}</del>
                                 </div>
                             </div>
-                            <form action="{{route('Homelist.destroy',$listcompleted->id)}}" method="POST" >
+                            <form action="{{route('ImportantList.destroy',$listcompleted->id)}}" method="POST" >
                                 @csrf
                                 @method('Delete')
                                 <button type="submit" class="btn btn-sm"><i class="fa fa-times"></i></button>

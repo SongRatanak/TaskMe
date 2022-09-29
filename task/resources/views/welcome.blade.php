@@ -76,7 +76,7 @@
                         <a href="/home" class="nav-item nav-link active">Home</a>
                         <a href="about.html" class="nav-item nav-link">About</a>
                             @auth
-                                    <a href="{{ url('/dashboard') }}" class="nav-item nav-link">Dashboard</a>
+                                    <a href="{{ route('home') }}" class="nav-item nav-link">Dashboard</a>
                                 @else
                                     <a href="{{ route('login') }}" class="nav-item nav-link">Login</a>
                             @if (Route::has('register'))

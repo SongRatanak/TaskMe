@@ -28,24 +28,30 @@ Route::get('/about', function (){
 Route::get('/home', [HomeController::class, 'Home'])->name('Home');
 
 
-
-//Route Home
+//Route HomeList
 Route::resource('Homelist',HomeListController::class);
 Route::PUT('completed/{todoList}',[HomeListController::class, 'complete'])->name('complete.update');
 Route::PUT('un/completed/{todoList}',[HomeListController::class, 'uncomplete'])->name('uncomplete.update');
 
-//Rpute Important
+//Route Important
 Route::resource('ImportantList',\App\Http\Controllers\TodoList\ImportantListController::class);
-Route::PUT('important/completed/{todoList}',[ImportantListController::class, 'personalcomplete'])->name('importantcomplete.update');
-Route::PUT('important/un/completed/{todoList}',[ImportantListController::class, 'importantuncomplete'])->name('importantuncomplete.update');
+Route::PUT('important/completed/{importantlist}',[ImportantListController::class, 'importantcomplete'])->name('importantcomplete.update');
+Route::PUT('important/un/completed/{importantlist}',[ImportantListController::class, 'importantuncomplete'])->name('importantuncomplete.update');
 
 
-//Route personal
-Route::resource('PersonalList',PersonalListController::class);
-Route::PUT('personal/complete/{todoList}',[PersonalListController::class, 'perosnalcomplete'])->name('perosnalcomplete.update');
-Route::PUT('personal/un/completed/{todoList}',[PersonalListController::class, 'personaluncomplete'])->name('personaluncomplete.update');
+
+
+Route::group(['web'],function(){
+    //Route personal
+    Route::resource('PersonalList',PersonalListController::class);
+    Route::PUT('personal/complete/{todoList}',[PersonalListController::class, 'perosnalcomplete'])->name('perosnalcomplete.update');
+    Route::PUT('personal/un/completed/{todoList}',[PersonalListController::class, 'personaluncomplete'])->name('personaluncomplete.update');
+});
+
 
 //Route::resource('Home',HomeListController::class);
+
+Route::resource('TakeNote',\App\Http\Controllers\TakeNote\TakeNoteController::class);
 
 Route::middleware([
     'auth:sanctum',

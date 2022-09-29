@@ -16,7 +16,6 @@
                     <form action="{{route('PersonalList.store')}}" method='POST'>
                         @csrf
                         <div class="d-flex mb-2">
-
                             <input class="form-control bg-transparent" name="task"  type="text" placeholder="Enter task">
                             <button type="submit" class="btn btn-primary ms-2">Add</button>
                         </div>

@@ -51,20 +51,20 @@ class ImportantListController extends Controller
         return redirect()->back();
     }
 
-    public function importantcomplete( TodoList $importantList)
+    public function importantcomplete ( TodoList $importantlist )
     {
         $input['completed'] = true;
         $input['completed_at'] = Carbon::now();
         $input['user_id'] = Auth::id();
-        $importantList->update($input);
+        $importantlist->update($input);
         return redirect()->back();
     }
-    public function importantuncomplete( TodoList $importantList)
+    public function importantuncomplete( TodoList $importantlist)
     {
         $input['completed'] = false;
         $input['completed_at'] = null;
         $input['user_id'] = Auth::id();
-        $importantList->update($input);
+        $importantlist->update($input);
         return redirect()->back();
     }
 

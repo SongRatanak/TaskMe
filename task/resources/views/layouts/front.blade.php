@@ -21,7 +21,7 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -35,9 +35,9 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    
+
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
-    
+
      <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -76,21 +76,21 @@
                         <a href="/home" class="nav-item nav-link active">Home</a>
                         <a href="/about" class="nav-item nav-link">About</a>
                             @auth
-                                    <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                                    <a href="{{ route('Home') }}" class="nav-item nav-link">Dashboard</a>
                                 @else
-                                    <a href="{{ route('login') }}" class="nav-item nav-link">Login</a> 
+                                    <a href="{{ route('login') }}" class="nav-item nav-link">Login</a>
 
                                 @if (Route::has('register'))
                                     <a href="{{ route('register') }}" class="nav-item nav-link">Register</a>
                                 @endif
                             @endauth
-                    </div>   
-                    @endif     
+                    </div>
+                    @endif
             </nav>
 
 
             @yield('content')
-       
+
 
              <!-- Footer Start -->
              <div class="container-fluid bg-dark text-light footer pt-5 wow fadeIn" data-wow-delay="0.1s" style="margin-top: 6rem;">
@@ -139,8 +139,8 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved. 
-							
+                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
+
 							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
 							Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
                             <br>Distributed By: <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
