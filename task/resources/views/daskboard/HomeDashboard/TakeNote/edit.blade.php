@@ -5,7 +5,7 @@
         <div class="row g-4">
             <div class="col-sm-12 col-xl-12">
                 <div class="bg-light rounded h-100 p-4">
-                    <h6 class="mb-4">Floating Label</h6>
+                    <h6 class="mb-4" style="color: #059f25">{{$TakeNote -> title}}</h6>
                     <form action="{{route('TakeNote.update',$TakeNote->id)}}" method="POST">
                         @csrf
                         @method('PUT')
@@ -18,7 +18,7 @@
                                               id="floatingTextarea" style="height: 150px;"  required >{{$TakeNote ->description}}</textarea>
                             <label for="floatingTextarea">Note</label>
                         </div>
-                        <button type="submit" class="btn btn-primary m-4 float-end">Save</button>
+                        <button type="submit" class="btn btn-primary m-4 float-end"><a href="{{route('TakeNote.index')}}"></a>Save</button>
                     </form>
                 </div>
             </div>

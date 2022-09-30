@@ -55,9 +55,9 @@ class TakeNoteController extends Controller
      * @param  \App\Models\TakeNote  $takeNote
      * @return \Illuminate\Http\Response
      */
-    public function show(TakeNote $takeNote )
+    public function show(TakeNote $TakeNote )
     {
-
+        return view('daskboard.HomeDashboard.TakeNote.show',compact('TakeNote'));
     }
 
     /**
@@ -70,6 +70,9 @@ class TakeNoteController extends Controller
     {
         return view('daskboard.HomeDashboard.TakeNote.edit',compact('TakeNote'));
     }
+
+
+
 
     /**
      * Update the specified resource in storage.
