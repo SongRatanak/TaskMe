@@ -36,17 +36,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-sm-6 col-xl-3">
-            <div class="bg-light rounded d-flex align-items-center justify-content-between p-3">
-                <i class="fa fa-star fa-3x text-primary"></i>
-                <div class="ms-2">
-                    <h6 class="mb-2">Take Note</h6>
-{{--                    <p class="mb-0"> UnComplete  {{ $TakeNote}}</p>--}}
-                    <br>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 

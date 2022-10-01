@@ -73,7 +73,7 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     @if (Route::has('login'))
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="/home" class="nav-item nav-link active">Home</a>
+                        <a href="/" class="nav-item nav-link">Home</a>
                         <a href="/about" class="nav-item nav-link">About</a>
                             @auth
                                     <a href="{{ route('Home') }}" class="nav-item nav-link">Dashboard</a>

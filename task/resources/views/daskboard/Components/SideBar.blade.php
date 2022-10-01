@@ -29,14 +29,6 @@
 
 
             <a href="{{route('TakeNote.index')}}" class="nav-item nav-link  {{ (request()->is('TakeNote*')) ? 'active' : '' }} "><i class="fa fa-book me-2"></i> Take Note</a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-user me-2"></i>User</a>
-                <div class="dropdown-menu bg-transparent border-0">
-                    <a href="button.html" class="dropdown-item">Home</a>
-                    <a href="typography.html" class="dropdown-item">Personal</a>
-
-                </div>
-            </div>
         </div>
 
 

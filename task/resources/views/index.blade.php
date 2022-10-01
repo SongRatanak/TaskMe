@@ -4,9 +4,10 @@
 <div class="container">
     <div class="row g-5 align-items-center">
         <div class="col-lg-6 text-center text-lg-start">
-            <h1 class="text-white mb-4 animated zoomIn">We Help To Push Your Business To The Top Level</h1>
-            <p class="text-white pb-3 animated zoomIn">Tempor rebum no at dolore lorem clita rebum rebum ipsum rebum stet dolor sed justo kasd. Ut dolor sed magna dolor sea diam. Sit diam sit justo amet ipsum vero ipsum clita lorem</p>
-            <a href="" class="btn btn-outline-light rounded-pill border-2 py-3 px-5 animated slideInRight">Learn More</a>
+            <h1 class="text-white mb-4 animated zoomIn">Organize your
+                work and life, finally.</h1>
+            <p class="text-white pb-3 animated zoomIn">To Become focused, organized, and calm with Todoist. The Cambodia's task manager and to-do list app.</p>
+            <a href="{{route('login')}}" class="btn btn-outline-light rounded-pill border-2 py-3 px-5 animated slideInRight">Learn More</a>
         </div>
         <div class="col-lg-6 text-center text-lg-start">
             <img class="img-fluid animated zoomIn" src="img/hero.png" alt="">
@@ -21,12 +22,14 @@
 <div class="container">
 <div class="row g-5 align-items-center">
     <div class="col-lg-6 wow zoomIn" data-wow-delay="0.1s">
-        <img class="img-fluid" src="img/about.png">
+        <img class="img-fluid" src="img/about.jpg">
     </div>
     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
         <div class="d-inline-block border rounded-pill text-primary px-4 mb-3">About Us</div>
-        <h2 class="mb-4">Award Wining Consultancy Agency For Your Business</h2>
-        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod</p>
+        <h2 class="mb-4">Add your tasks.
+            Organize your life.
+            Achieve more every day.</h2>
+        <p class="mb-4">Add tasks like “Read work emails every day at 10am” to fill your to-do list in seconds using Todoist’s powerful natural language recognition and recurring dates.</p>
         <div class="row g-3 mb-4">
             <div class="col-12 d-flex">
                 <div class="flex-shrink-0 btn-lg-square rounded-circle bg-primary">
