@@ -10,7 +10,6 @@
                     <h6 class="mb-2">Home Task</h6>
                     <p class="mb-0"> Uncompleted  {{ $TodolistNotComplete}}</p>
                     <p class="mb-0"> Complete  {{ $TodolistCount}}</p>
-
 {{--                    <p class="mb-0"> Un Complete  {{ $HomeunComplete}}</p>--}}
                 </div>
             </div>
@@ -34,8 +33,17 @@
                     <h6 class="mb-2">Important Task</h6>
                     <p class="mb-0"> UnComplete  {{ $ImportantNotComplete}}</p>
                     <p class="mb-0"> Task Complete  {{ $ImportantCount}}</p>
+                </div>
+            </div>
+        </div>
 
-
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-3">
+                <i class="fa fa-star fa-3x text-primary"></i>
+                <div class="ms-2">
+                    <h6 class="mb-2">Take Note</h6>
+{{--                    <p class="mb-0"> UnComplete  {{ $TakeNote}}</p>--}}
+                    <br>
                 </div>
             </div>
         </div>
@@ -77,7 +85,7 @@
             <div class="h-100 bg-light rounded p-4">
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <h6 class="mb-0">Personal List</h6>
-                    <a href="">Show All</a>
+                    <a href="{{route('PersonalList.index')}}">Show All</a>
                 </div>
 
                     @foreach($PersonalComplete as $PersonalComplete)
@@ -109,7 +117,7 @@
             <div class="h-100 bg-light rounded p-4">
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <h6 class="mb-0">Important List</h6>
-                    <a href="">Show All</a>
+                    <a href="{{route('ImportantList.index')}}">Show All</a>
                 </div>
                 @foreach($ImportantComplete as $ImportantComplete)
                     <div class="d-flex align-items-center border-bottom py-2 bg-teal-200">
@@ -135,6 +143,7 @@
         </div>
     </div>
 </div>
+
 <!-- Widgets End -->
 
 

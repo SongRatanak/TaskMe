@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\TakeNote;
 use App\Models\TodoList;
 use Illuminate\Http\Request;
 use function GuzzleHttp\Promise\all;
@@ -25,6 +26,8 @@ class HomeController extends Controller
         $ImportantCount = TodoList::all()->where('type','Important')->where('completed','1') ->count();
         $ImportantNotComplete = TodoList::all()->where('type','Important')->where('completed','0')->count();
         $ImportantComplete = TodoList::orderBy('id','DESC')->where('type','Important')->where('completed','1')->get();
+
+//        $TakeNote = DB::table('title');
 
         return view ('daskboard.HomeDashboard.dashboard',compact('TodolistCount','ImportantCount','PersonalCount','ImportantComplete','TodolistNotComplete','ImportantNotComplete','PersonalNotComplete','PersonalComplete','TodolisComplet'));
 
